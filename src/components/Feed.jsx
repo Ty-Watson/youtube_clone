@@ -4,6 +4,11 @@ import {SideBar , Videos} from './';
 import { fetchFromAPI } from '../Utils/fetchFromAPI';
 
 {/*useEffect is a lifecycle hook that is called when component initially loads*/}
+{/*useEffect is a built-in hook in React that allows you to perform side effects in functional components. A side effect is anything that changes the state of your application or interacts with something outside your component, such as fetching data from an API, updating the DOM, setting up event listeners, etc.
+The useEffect hook takes two arguments: a callback function and a dependency array. The callback function contains the code that should be executed whenever the component is mounted, updated, or unmounted. The dependency array is an optional parameter that determines when the callback function should be called.
+If any of the values in the dependency array change, the callback function will be called again. If the dependency array is empty, the callback function will only be called once when the component is mounted.
+In the code snippet you provided, the useEffect hook is used to fetch data from an API and set the state variable videos with the fetched data. The dependency array contains only selectedCategory, which means that the callback function will be called again whenever selectedCategory changes.
+This ensures that the videos state variable is updated with the correct data whenever the selected category changes. */}
 {/*`` makes the url dynamic so you make a template string*/}
 
 export const Feed = () => {
@@ -33,7 +38,7 @@ export const Feed = () => {
           {selectedCategory} <span style={{ color: '#f31503'}} >videos</span>
           
         </Typography>
-        <Videos videos={videos} />
+        <Videos videos={videos} /> {/* the videos prop passed to the Videos component contains the video data that was fetched from the API using the useEffect hook.*/}
       </Box>
     </Stack>
   )
